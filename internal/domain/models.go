@@ -39,7 +39,7 @@ type PullRequest struct {
 	PullRequestName string     `gorm:"column:pull_request_name;not null"`
 	AuthorID        string     `gorm:"column:author_id;not null;index"`
 	Status          PRStatus   `gorm:"column:status;type:varchar(16);not null"`
-	CreatedAt       time.Time  `gorm:"column:created_at;not null;default:now()"`
+	CreatedAt       time.Time  `gorm:"column:created_at;not null"`
 	MergedAt        *time.Time `gorm:"column:merged_at"`
 }
 

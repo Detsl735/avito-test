@@ -7,7 +7,8 @@ import (
 	"github.com/Detsl735/avito-test/internal/domain"
 	"github.com/Detsl735/avito-test/internal/repository"
 	"github.com/stretchr/testify/require"
-	"gorm.io/driver/sqlite"
+
+	"github.com/glebarez/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -30,7 +31,6 @@ func TestCreatePR_AssignsReviewers(t *testing.T) {
 
 	ctx := context.Background()
 
-	// данные
 	err := db.Create(&domain.Team{TeamName: "backend"}).Error
 	require.NoError(t, err)
 
@@ -73,7 +73,6 @@ func TestMergePR_Idempotent(t *testing.T) {
 	require.Equal(t, domain.PRStatusMerged, full.Status)
 	require.NotNil(t, full.MergedAt)
 
-	// второй вызов
 	full2, err := prSvc.MergePR(ctx, "pr-2")
 	require.NoError(t, err)
 	require.Equal(t, domain.PRStatusMerged, full2.Status)

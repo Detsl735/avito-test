@@ -7,7 +7,8 @@ import (
 	"github.com/Detsl735/avito-test/internal/domain"
 	"github.com/Detsl735/avito-test/internal/repository"
 	"github.com/stretchr/testify/require"
-	"gorm.io/driver/sqlite"
+
+	"github.com/glebarez/sqlite"
 	"gorm.io/gorm"
 )
 
